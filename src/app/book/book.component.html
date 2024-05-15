@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="mb-3">
+            <label for="Title" class="form-label"> Title</label>
+            <input [(ngModel)]="bookTitle" type="text" class="form-control" id="tile" placeholder="Title">
+        </div>
+        <div class="mb-3">
+            <label for="Author" class="form-label"> Author</label>
+            <input type="text" class="form-control" [(ngModel)]="bookAuthor" id="author" placeholder="Author">
+        </div>
+        <div class="mb-3">
+            <button (click)="addBook()" class="btn btn-primary"> Add book</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let book of books;index as i">
+                <th scope="row">{{i}}</th>
+                <td>{{book.title}}</td>
+                <td>{{book.author}}</td>
+                <td><button (click)="deleteBook(i)" class="btn btn-danger">Del</button></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
